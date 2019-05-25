@@ -1,10 +1,13 @@
+C := "c0sco/devconsole"
+
 devconsole:
-	docker build -t c0sco/devconsole .
+	docker build -t ${C} .
 
 push:
-	docker push c0sco/devconsole
+	docker push ${C}
 
 run:
+	@docker pull ${C}
 	@./run.sh
 
 .PHONY: devconsole push run
